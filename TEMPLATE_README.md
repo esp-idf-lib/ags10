@@ -1,4 +1,4 @@
-# About `template-component`
+# About `ags10`
 
 This is a template repository for `esp-idf-lib` component. The repository is
 intended to be cloned to create new component quickly.

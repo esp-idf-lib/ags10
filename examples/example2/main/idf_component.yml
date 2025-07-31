@@ -1,8 +1,8 @@
 ---
 
-version: 1.0.0
-description: Example 2
+version: 0.5.0
+description: AGS10 Advanced Example with Calibration
 dependencies:
-  esp-idf-lib/template-component:
-    version: "~1.0.0"
+  esp-idf-lib/ags10:
+    version: "~0.5.0"
     override_path: ../../../
