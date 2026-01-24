@@ -7,8 +7,6 @@
 #define TAG "ags10_advanced_example"
 
 #define I2C_PORT I2C_NUM_0
-#define SDA_GPIO GPIO_NUM_21
-#define SCL_GPIO GPIO_NUM_22
 
 static void read_all_values(i2c_dev_t *dev)
 {
@@ -40,9 +38,9 @@ void app_main(void)
     ESP_ERROR_CHECK(i2cdev_init());
 
     i2c_dev_t dev;
-    
+
     // Initialize AGS10 device descriptor
-    esp_err_t err = ags10_init_desc(&dev, I2C_PORT, AGS10_I2CADDR_DEFAULT, SDA_GPIO, SCL_GPIO);
+    esp_err_t err = ags10_init_desc(&dev, I2C_PORT, AGS10_I2CADDR_DEFAULT, CONFIG_EXAMPLE_I2C_MASTER_SDA, CONFIG_EXAMPLE_I2C_MASTER_SCL);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize AGS10: %s", esp_err_to_name(err));
         return;
@@ -68,9 +66,9 @@ void app_main(void)
     // Example of zero-point calibration
     ESP_LOGI(TAG, "Performing zero-point calibration with current resistance...");
     ESP_LOGW(TAG, "Make sure the sensor is in clean air environment!");
-    
+
     vTaskDelay(pdMS_TO_TICKS(3000)); // Give user time to ensure clean air
-    
+
     err = ags10_set_zero_point_with_current_resistance(&dev);
     if (err == ESP_OK) {
         ESP_LOGI(TAG, "Zero-point calibration successful");
@@ -85,7 +83,7 @@ void app_main(void)
     while (1) {
         reading_count++;
         ESP_LOGI(TAG, "=== Reading #%d ===", reading_count);
-        
+
         read_all_values(&dev);
 
         // Every 10th reading (100 seconds), demonstrate factory reset
@@ -105,16 +103,4 @@ void app_main(void)
 
     // Clean up (this code will never be reached in this example)
     ags10_free_desc(&dev);
-}_log.h>
-#include <ags10.h>
-
-#define TAG "example1"
-
-void app_main(void)
-{
-    uint8_t foo = 1;
-    uint8_t bar = 2;
-    esp_err_t err = func1(foo, bar);
-
-    ESP_LOGI(TAG, "result: %d", err);
 }
