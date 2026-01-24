@@ -1,5 +1,5 @@
 ---
-version: 0.5.0
+version: 0.5.1
 description: "ESP-IDF driver for AGS10 TVOC sensor"
 license: "BSD-3-Clause"
 targets:
@@ -13,10 +13,11 @@ targets:
   - esp32p4
   - esp32s2
   - esp32s3
-  - esp8266
 dependencies:
-  i2cdev: "*"
-  esp_idf_lib_helpers: "*"
+  esp-idf-lib/i2cdev:
+    version: "*"
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: "*"
 maintainers:
   - xyzroe <i@xyzroe.cc>
 url: https://github.com/esp-idf-lib/core

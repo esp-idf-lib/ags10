@@ -1,7 +1,7 @@
 ---
 name: ags10
 description: Driver for AGS10 TVOC sensor
-version: 0.5.0
+version: 0.5.1
 groups:
   - air-quality
   - gas
@@ -14,18 +14,16 @@ depends:
 thread_safe: yes
 targets:
   - esp32
-  - esp8266
-  - esp32s2
-  - esp32c3
-  - esp32s3
   - esp32c2
+  - esp32c3
+  - esp32c5
   - esp32c6
+  - esp32c61
   - esp32h2
   - esp32p4
-  - esp32c5
-  - esp32c61
-  - esp8266
+  - esp32s2
+  - esp32s3
 license: MIT
 copyrights:
-  - name: trombik
+  - name: xyzroe
     year: 2025
