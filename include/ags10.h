@@ -77,19 +77,19 @@ extern "C" {
  * {
  *     i2c_dev_t dev;
  *     ESP_ERROR_CHECK(i2cdev_init());
- *     
+ *
  *     esp_err_t err = ags10_init_desc(&dev, I2C_PORT, AGS10_I2CADDR_DEFAULT, SDA_GPIO, SCL_GPIO);
  *     if (err != ESP_OK) {
  *         ESP_LOGE(TAG, "Failed to init AGS10: %s", esp_err_to_name(err));
  *         return;
  *     }
- *     
+ *
  *     uint32_t tvoc;
  *     err = ags10_read_tvoc(&dev, &tvoc);
  *     if (err == ESP_OK) {
  *         ESP_LOGI(TAG, "TVOC: %lu ppb", tvoc);
  *     }
- *     
+ *
  *     ags10_free_desc(&dev);
  * }
  * @endcode
@@ -124,7 +124,7 @@ esp_err_t ags10_free_desc(i2c_dev_t *dev);
  *
  * @param[in] dev Pointer to the I2C device descriptor
  * @param[out] tvoc Pointer to store the TVOC value in ppb
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -138,7 +138,7 @@ esp_err_t ags10_read_tvoc(i2c_dev_t *dev, uint32_t *tvoc);
  *
  * @param[in] dev Pointer to the I2C device descriptor
  * @param[out] version Pointer to store the firmware version
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -153,7 +153,7 @@ esp_err_t ags10_read_version(i2c_dev_t *dev, uint8_t *version);
  *
  * @param[in] dev Pointer to the I2C device descriptor
  * @param[out] resistance Pointer to store the resistance value
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -171,7 +171,7 @@ esp_err_t ags10_read_resistance(i2c_dev_t *dev, uint32_t *resistance);
  *
  * @param[in,out] dev Pointer to the I2C device descriptor (address will be updated)
  * @param[in] new_address New I2C address (7-bit, range: 0x08-0x77)
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -185,7 +185,7 @@ esp_err_t ags10_set_i2c_address(i2c_dev_t *dev, uint8_t new_address);
  * This is useful when the sensor readings drift over time.
  *
  * @param[in] dev Pointer to the I2C device descriptor
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -199,7 +199,7 @@ esp_err_t ags10_set_zero_point_with_factory_defaults(i2c_dev_t *dev);
  * Use this function in clean air conditions for calibration.
  *
  * @param[in] dev Pointer to the I2C device descriptor
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
@@ -214,7 +214,7 @@ esp_err_t ags10_set_zero_point_with_current_resistance(i2c_dev_t *dev);
  *
  * @param[in] dev Pointer to the I2C device descriptor
  * @param[in] value Calibration value (0x0000 = current resistance, 0xFFFF = factory defaults)
- * @return 
+ * @return
  *   - ESP_OK: Success
  *   - ESP_ERR_INVALID_ARG: Invalid argument
  *   - ESP_FAIL: Communication failure
