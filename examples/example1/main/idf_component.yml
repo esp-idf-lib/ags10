@@ -1,8 +1,12 @@
 ---
 
 version: 1.0.0
-description: Example 1
+description: AGS10 Basic TVOC Reading Example
 dependencies:
-  esp-idf-lib/template-component:
-    version: "~1.0.0"
-    override_path: ../../../
+  esp-idf-lib/ags10:
+    version: "*"
+    override_path: "../../../"
+  esp-idf-lib/i2cdev:
+    version: "*"
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: "*"
