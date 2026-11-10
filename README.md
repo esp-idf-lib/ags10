@@ -30,7 +30,6 @@ ESP-IDF driver for AGS10 Total Volatile Organic Compounds (TVOC) sensor.
 - ESP32-P4
 - ESP32-S2
 - ESP32-S3
-- ESP8266
 
 ## Installation
 
