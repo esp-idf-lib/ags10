@@ -1,7 +1,7 @@
 ---
 version: 0.5.2
 description: "ESP-IDF driver for AGS10 TVOC sensor"
-license: "BSD-3-Clause"
+license: MIT
 dependencies:
   esp-idf-lib/i2cdev:
     version: "*"
